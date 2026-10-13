@@ -1,0 +1,1034 @@
+globalThis.__nitro_main__ = import.meta.url;
+import { i as HTTPError, n as defineLazyEventHandler, t as H3Core } from "./_libs/h3+rou3+srvx.mjs";
+import { t as HookableCore } from "./_libs/hookable.mjs";
+import { r as FastResponse } from "./_libs/h3-v2+rou3+srvx.mjs";
+//#region #nitro-vite-setup
+function lazyService(loader) {
+	let promise, mod;
+	return { fetch(req) {
+		if (mod) return mod.fetch(req);
+		if (!promise) promise = loader().then((_mod) => mod = _mod.default || _mod);
+		return promise.then((mod) => mod.fetch(req));
+	} };
+}
+var services = { ["ssr"]: lazyService(() => import("./_ssr/ssr.mjs")) };
+globalThis.__nitro_vite_envs__ = services;
+//#endregion
+//#region #nitro/virtual/public-assets-data
+var public_assets_data_default = {
+	"/favicon.ico": {
+		"type": "image/vnd.microsoft.icon",
+		"etag": "\"4f95-3RXc3p2mhEAs1WBwaIvE0Y0uu0Y\"",
+		"mtime": "2026-08-04T06:08:46.632Z",
+		"size": 20373,
+		"path": "../public/favicon.ico"
+	},
+	"/robots.txt": {
+		"type": "text/plain; charset=utf-8",
+		"etag": "\"a0-CKGXSIe7TSsqDTmGm/nY1t/o5d0\"",
+		"mtime": "2026-08-04T06:08:46.645Z",
+		"size": 160,
+		"path": "../public/robots.txt"
+	},
+	"/assets/auth-C2Mit2AD.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"3cce-Vr1oMnNqjUAV1xDtg5paM5/uBGM\"",
+		"mtime": "2026-10-13T07:21:44.254Z",
+		"size": 15566,
+		"path": "../public/assets/auth-C2Mit2AD.js"
+	},
+	"/assets/button-Bg8YP6yt.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"13cf-PAdmzx1MUHWtWeKHlg0asSRJGVQ\"",
+		"mtime": "2026-10-13T07:21:44.255Z",
+		"size": 5071,
+		"path": "../public/assets/button-Bg8YP6yt.js"
+	},
+	"/assets/cart-zum0m0Ru.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"f98-/E66ytpnU5Ag2o6DDSf9w9TaWDs\"",
+		"mtime": "2026-10-13T07:21:44.255Z",
+		"size": 3992,
+		"path": "../public/assets/cart-zum0m0Ru.js"
+	},
+	"/assets/checkout-BegjSLiB.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"16c3-ZUYp8meSXqpac2Jzka2uvYjx6xs\"",
+		"mtime": "2026-10-13T07:21:44.257Z",
+		"size": 5827,
+		"path": "../public/assets/checkout-BegjSLiB.js"
+	},
+	"/assets/category._slug-DcI-yjDr.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"762-bJay6+0BqIa1WXuL3JevsHPuGcA\"",
+		"mtime": "2026-10-13T07:21:44.256Z",
+		"size": 1890,
+		"path": "../public/assets/category._slug-DcI-yjDr.js"
+	},
+	"/assets/data-Bx3iyagT.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"93f-WgsQaejGaVhLZ36XoEG6fu9XETI\"",
+		"mtime": "2026-10-13T07:21:44.258Z",
+		"size": 2367,
+		"path": "../public/assets/data-Bx3iyagT.js"
+	},
+	"/assets/dist-C5vJGR7k.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"91b7-/JSTPJ5jJ2H8TfStEoiTA+YR3tM\"",
+		"mtime": "2026-10-13T07:21:44.259Z",
+		"size": 37303,
+		"path": "../public/assets/dist-C5vJGR7k.js"
+	},
+	"/assets/food-card-BBpY-Pju.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"c2b-17dbCN/EvH3d1oI3Rq/qbCWZTHU\"",
+		"mtime": "2026-10-13T07:21:44.260Z",
+		"size": 3115,
+		"path": "../public/assets/food-card-BBpY-Pju.js"
+	},
+	"/assets/format-vEQiUox6.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"27e-Lau/lNpnuOiAO/WruCL5XfSAhHQ\"",
+		"mtime": "2026-10-13T07:21:44.261Z",
+		"size": 638,
+		"path": "../public/assets/format-vEQiUox6.js"
+	},
+	"/assets/jsx-runtime-Bzw2jH9X.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"237e-ZcA4SjguY+LaV/FY7+MLbKZqCaw\"",
+		"mtime": "2026-10-13T07:21:44.264Z",
+		"size": 9086,
+		"path": "../public/assets/jsx-runtime-Bzw2jH9X.js"
+	},
+	"/assets/images-91qmPJ2R.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"1668-w/PYovXxi+IJf6CkEK+OLZSQlto\"",
+		"mtime": "2026-10-13T07:21:44.263Z",
+		"size": 5736,
+		"path": "../public/assets/images-91qmPJ2R.js"
+	},
+	"/assets/label-nBJxRixy.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"79d2-NhIzYuFviCWWbtQojaINQia2wp4\"",
+		"mtime": "2026-10-13T07:21:44.265Z",
+		"size": 31186,
+		"path": "../public/assets/label-nBJxRixy.js"
+	},
+	"/assets/food._foodId-3MLZ0VHQ.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"5e295-W7xxl+LP1Ru5fo2HuvEIXtbOJ7s\"",
+		"mtime": "2026-10-13T07:21:44.261Z",
+		"size": 385685,
+		"path": "../public/assets/food._foodId-3MLZ0VHQ.js"
+	},
+	"/assets/link-C53MvuEg.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"104e-TrGrbYfv7wzI+rR5ZgmCEq0rj1M\"",
+		"mtime": "2026-10-13T07:21:44.266Z",
+		"size": 4174,
+		"path": "../public/assets/link-C53MvuEg.js"
+	},
+	"/assets/matchContext-Bg-sGpTu.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"e7f0-wK2tnMUvB4xIRNTOpkdvs6xuaxg\"",
+		"mtime": "2026-10-13T07:21:44.268Z",
+		"size": 59376,
+		"path": "../public/assets/matchContext-Bg-sGpTu.js"
+	},
+	"/assets/map-pin-Bfi1k5IX.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"25a-C+JcVlF5E7jsJBUZ5MJl+k753I4\"",
+		"mtime": "2026-10-13T07:21:44.267Z",
+		"size": 602,
+		"path": "../public/assets/map-pin-Bfi1k5IX.js"
+	},
+	"/assets/minus-Btlqaw7X.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"6a-VYiJCj3zSUTihJcteJfZM3wstbo\"",
+		"mtime": "2026-10-13T07:21:44.269Z",
+		"size": 106,
+		"path": "../public/assets/minus-Btlqaw7X.js"
+	},
+	"/assets/plus-CfLNzBdM.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"8e-cji4nuOTfQdxy6wZGdUNNhWmqN4\"",
+		"mtime": "2026-10-13T07:21:44.272Z",
+		"size": 142,
+		"path": "../public/assets/plus-CfLNzBdM.js"
+	},
+	"/assets/offers-CyuiMYep.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"762-Firgmnqh7EzWG9nwXf68x7KXJSE\"",
+		"mtime": "2026-10-13T07:21:44.270Z",
+		"size": 1890,
+		"path": "../public/assets/offers-CyuiMYep.js"
+	},
+	"/assets/orders-BNVoIL1V.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"73d-FvLm9/hUDxv6bFkYJkLC89y7E3E\"",
+		"mtime": "2026-10-13T07:21:44.271Z",
+		"size": 1853,
+		"path": "../public/assets/orders-BNVoIL1V.js"
+	},
+	"/assets/preload-helper-Bh0S0pE_.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"15eb-WlD4kq11DeeChJvkTcMzMkX8qmg\"",
+		"mtime": "2026-10-13T07:21:44.272Z",
+		"size": 5611,
+		"path": "../public/assets/preload-helper-Bh0S0pE_.js"
+	},
+	"/assets/profile-D4RswYJg.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"1ec7-YdPiK8zoCSKELRl8IbJRBmq6x2s\"",
+		"mtime": "2026-10-13T07:21:44.273Z",
+		"size": 7879,
+		"path": "../public/assets/profile-D4RswYJg.js"
+	},
+	"/assets/index-DlWATgoj.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"98137-XqTDfMf3RJlCJDcy3xm02qzP8rc\"",
+		"mtime": "2026-10-13T07:21:44.252Z",
+		"size": 622903,
+		"path": "../public/assets/index-DlWATgoj.js"
+	},
+	"/assets/restaurant-card-k30MRAgw.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"823-ndrMC+Sw4AijTwxf+Z2kfy2PUYM\"",
+		"mtime": "2026-10-13T07:21:44.276Z",
+		"size": 2083,
+		"path": "../public/assets/restaurant-card-k30MRAgw.js"
+	},
+	"/assets/restaurant._slug-Ciyfblyc.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"988-2miUa4w3hQkib0MQiHTd3vwy8do\"",
+		"mtime": "2026-10-13T07:21:44.277Z",
+		"size": 2440,
+		"path": "../public/assets/restaurant._slug-Ciyfblyc.js"
+	},
+	"/assets/route-D8xW0Mja.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"8d-28dZh6k4AIrOLtskTOtp1eEqaL8\"",
+		"mtime": "2026-10-13T07:21:44.279Z",
+		"size": 141,
+		"path": "../public/assets/route-D8xW0Mja.js"
+	},
+	"/assets/restaurants-BIBlFaHA.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"552-7Ek/tH+87YuDwDHWqd+T5pG+omw\"",
+		"mtime": "2026-10-13T07:21:44.278Z",
+		"size": 1362,
+		"path": "../public/assets/restaurants-BIBlFaHA.js"
+	},
+	"/assets/routes-C5MDp_43.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"2954-naNQYv1hIHvI8BM5rzlnEN6unDQ\"",
+		"mtime": "2026-10-13T07:21:44.280Z",
+		"size": 10580,
+		"path": "../public/assets/routes-C5MDp_43.js"
+	},
+	"/assets/rating-BUi7KWEv.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"1ddab-LeCizDQuiH8H0Ul/RjcX8gB7P/s\"",
+		"mtime": "2026-10-13T07:21:44.274Z",
+		"size": 122283,
+		"path": "../public/assets/rating-BUi7KWEv.js"
+	},
+	"/assets/skeletons-CLE_Thxn.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"459-fOVNnh7bZaucnu1PWrOOkGyrnnk\"",
+		"mtime": "2026-10-13T07:21:44.283Z",
+		"size": 1113,
+		"path": "../public/assets/skeletons-CLE_Thxn.js"
+	},
+	"/assets/search-Bn8XnHnI.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"3d2-k6+WywqKOqS16zAEifWGVBaXHIs\"",
+		"mtime": "2026-10-13T07:21:44.282Z",
+		"size": 978,
+		"path": "../public/assets/search-Bn8XnHnI.js"
+	},
+	"/assets/trash-2-DLcXY-Fq.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"13d-T9Fu70o6XzwEFsrqnXjkdtnGsCk\"",
+		"mtime": "2026-10-13T07:21:44.285Z",
+		"size": 317,
+		"path": "../public/assets/trash-2-DLcXY-Fq.js"
+	},
+	"/assets/useNavigate-2wp2ldbe.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"e4-JmcwGRCJ0SyKCmqqUZE7OpQdNZM\"",
+		"mtime": "2026-10-13T07:21:44.285Z",
+		"size": 228,
+		"path": "../public/assets/useNavigate-2wp2ldbe.js"
+	},
+	"/assets/useRouter-DaChITO9.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"97-OcKkUkfI1WMBPOV8LnJ8zmxIUVg\"",
+		"mtime": "2026-10-13T07:21:44.286Z",
+		"size": 151,
+		"path": "../public/assets/useRouter-DaChITO9.js"
+	},
+	"/assets/useSelector-CMV4ndLu.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"760-6qZ39ARPnawuWjZQgm53KDDdqDo\"",
+		"mtime": "2026-10-13T07:21:44.287Z",
+		"size": 1888,
+		"path": "../public/assets/useSelector-CMV4ndLu.js"
+	},
+	"/assets/styles-ChnemdsL.css": {
+		"type": "text/css; charset=utf-8",
+		"etag": "\"149a8-YGi+/Qip04uUZpPnmH6twaboMGw\"",
+		"mtime": "2026-10-13T07:21:44.291Z",
+		"size": 84392,
+		"path": "../public/assets/styles-ChnemdsL.css"
+	},
+	"/assets/utils-D0T3A-kS.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"6bac-lbrR5Uk7MwXv0bw3OHvsnKy1L+Y\"",
+		"mtime": "2026-10-13T07:21:44.289Z",
+		"size": 27564,
+		"path": "../public/assets/utils-D0T3A-kS.js"
+	},
+	"/assets/wishlist-CCjv8EG_.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"735-VX6ko9lqtwSI18o3WQEGSzI3Ye8\"",
+		"mtime": "2026-10-13T07:21:44.290Z",
+		"size": 1845,
+		"path": "../public/assets/wishlist-CCjv8EG_.js"
+	},
+	"/assets/_orderId-DZtHcxn7.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"f1d-2bpfmrCCDG+hAWj5+xa6tWqr9z0\"",
+		"mtime": "2026-10-13T07:21:44.253Z",
+		"size": 3869,
+		"path": "../public/assets/_orderId-DZtHcxn7.js"
+	}
+};
+//#endregion
+//#region #nitro/virtual/public-assets
+var publicAssetBases = {};
+function isPublicAssetURL(id = "") {
+	if (public_assets_data_default[id]) return true;
+	for (const base in publicAssetBases) if (id.startsWith(base)) return true;
+	return false;
+}
+//#endregion
+//#region node_modules/nitro/dist/runtime/internal/route-rules.mjs
+var headers = ((m) => function headersRouteRule(event) {
+	for (const [key, value] of Object.entries(m.options || {})) event.res.headers.set(key, value);
+});
+//#endregion
+//#region #nitro/virtual/routing
+var findRouteRules = /* @__PURE__ */ (() => {
+	const $0 = [{
+		name: "headers",
+		route: "/assets/**",
+		handler: headers,
+		options: { "cache-control": "public, max-age=31536000, immutable" }
+	}];
+	return (m, p) => {
+		let r = [];
+		if (p.charCodeAt(p.length - 1) === 47) p = p.slice(0, -1) || "/";
+		let s = p.split("/");
+		if (s.length > 1) {
+			if (s[1] === "assets") r.unshift({
+				data: $0,
+				params: { "_": s.slice(2).join("/") }
+			});
+		}
+		return r;
+	};
+})();
+var _lazy_e4Root = defineLazyEventHandler(() => import("./_chunks/ssr-renderer.mjs"));
+var findRoute = /* @__PURE__ */ (() => {
+	const data = {
+		route: "/**",
+		handler: _lazy_e4Root
+	};
+	return ((_m, p) => {
+		return {
+			data,
+			params: { "_": p.slice(1) }
+		};
+	});
+})();
+[].filter(Boolean);
+//#endregion
+//#region node_modules/nitro/dist/runtime/internal/error/prod.mjs
+var errorHandler = (error, event) => {
+	const res = defaultHandler(error, event);
+	return new FastResponse(typeof res.body === "string" ? res.body : JSON.stringify(res.body, null, 2), res);
+};
+function defaultHandler(error, event) {
+	const unhandled = error.unhandled ?? !HTTPError.isError(error);
+	const { status = 500, statusText = "" } = unhandled ? {} : error;
+	if (status === 404) {
+		const url = event.url || new URL(event.req.url);
+		const baseURL = "/";
+		if (/^\/[^/]/.test(baseURL) && !url.pathname.startsWith(baseURL)) return {
+			status: 302,
+			headers: new Headers({ location: `${baseURL}${url.pathname.slice(1)}${url.search}` })
+		};
+	}
+	const headers = new Headers(unhandled ? {} : error.headers);
+	headers.set("content-type", "application/json; charset=utf-8");
+	return {
+		status,
+		statusText,
+		headers,
+		body: {
+			error: true,
+			...unhandled ? {
+				status,
+				unhandled: true
+			} : typeof error.toJSON === "function" ? error.toJSON() : {
+				status,
+				statusText,
+				message: error.message
+			}
+		}
+	};
+}
+//#endregion
+//#region #nitro/virtual/error-handler
+var errorHandlers = [errorHandler];
+async function error_handler_default(error, event) {
+	for (const handler of errorHandlers) try {
+		const response = await handler(error, event, { defaultHandler });
+		if (response) return response;
+	} catch (error) {
+		console.error(error);
+	}
+}
+//#endregion
+//#region #nitro/virtual/app
+function createNitroApp() {
+	const captureError = (error, errorCtx) => {
+		if (errorCtx?.event) {
+			const errors = errorCtx.event.req.context?.nitro?.errors;
+			if (errors) errors.push({
+				error,
+				context: errorCtx
+			});
+		}
+	};
+	const h3App = createH3App({ onError(error, event) {
+		return error_handler_default(error, event);
+	} });
+	let appHandler = (req) => {
+		req.context ||= {};
+		req.context.nitro = req.context.nitro || { errors: [] };
+		return h3App.fetch(req);
+	};
+	return {
+		fetch: appHandler,
+		h3: h3App,
+		hooks: void 0,
+		captureError
+	};
+}
+function createH3App(config) {
+	const h3App = new H3Core(config);
+	h3App["~findRoute"] = (event) => findRoute(event.req.method, event.url.pathname);
+	h3App["~getMiddleware"] = (event, route) => {
+		const pathname = event.url.pathname;
+		const method = event.req.method;
+		const middleware = [];
+		const routeRules = getRouteRules(method, pathname);
+		event.context.routeRules = routeRules?.routeRules;
+		if (routeRules?.routeRuleMiddleware.length) middleware.push(...routeRules.routeRuleMiddleware);
+		if (route?.data?.middleware?.length) middleware.push(...route.data.middleware);
+		return middleware;
+	};
+	return h3App;
+}
+//#endregion
+//#region node_modules/nitro/dist/runtime/internal/app.mjs
+var APP_ID = "default";
+function useNitroApp() {
+	let instance = useNitroApp._instance;
+	if (instance) return instance;
+	instance = useNitroApp._instance = createNitroApp();
+	globalThis.__nitro__ = globalThis.__nitro__ || {};
+	globalThis.__nitro__[APP_ID] = instance;
+	return instance;
+}
+function useNitroHooks() {
+	const nitroApp = useNitroApp();
+	const hooks = nitroApp.hooks;
+	if (hooks) return hooks;
+	return nitroApp.hooks = new HookableCore();
+}
+function getRouteRules(method, pathname) {
+	const m = findRouteRules(method, pathname);
+	if (!m?.length) return { routeRuleMiddleware: [] };
+	const routeRules = {};
+	for (const layer of m) for (const rule of layer.data) {
+		const currentRule = routeRules[rule.name];
+		if (currentRule) {
+			if (rule.options === false) {
+				delete routeRules[rule.name];
+				continue;
+			}
+			if (typeof currentRule.options === "object" && typeof rule.options === "object") currentRule.options = {
+				...currentRule.options,
+				...rule.options
+			};
+			else currentRule.options = rule.options;
+			currentRule.route = rule.route;
+			currentRule.params = {
+				...currentRule.params,
+				...layer.params
+			};
+		} else if (rule.options !== false) routeRules[rule.name] = {
+			...rule,
+			params: layer.params
+		};
+	}
+	const middleware = [];
+	const orderedRules = Object.values(routeRules).sort((a, b) => (a.handler?.order || 0) - (b.handler?.order || 0));
+	for (const rule of orderedRules) {
+		if (rule.options === false || !rule.handler) continue;
+		middleware.push(rule.handler(rule));
+	}
+	return {
+		routeRules,
+		routeRuleMiddleware: middleware
+	};
+}
+//#endregion
+//#region node_modules/nitro/dist/presets/cloudflare/runtime/_module-handler.mjs
+function createHandler(hooks) {
+	const nitroApp = useNitroApp();
+	const nitroHooks = useNitroHooks();
+	return {
+		async fetch(request, env, context) {
+			globalThis.__env__ = env;
+			augmentReq(request, {
+				env,
+				context
+			});
+			const ctxExt = {};
+			const url = new URL(request.url);
+			if (hooks.fetch) {
+				const res = await hooks.fetch(request, env, context, url, ctxExt);
+				if (res) return res;
+			}
+			return await nitroApp.fetch(request);
+		},
+		scheduled(controller, env, context) {
+			globalThis.__env__ = env;
+			context.waitUntil(nitroHooks.callHook("cloudflare:scheduled", {
+				controller,
+				env,
+				context
+			}) || Promise.resolve());
+		},
+		email(message, env, context) {
+			globalThis.__env__ = env;
+			context.waitUntil(nitroHooks.callHook("cloudflare:email", {
+				message,
+				event: message,
+				env,
+				context
+			}) || Promise.resolve());
+		},
+		queue(batch, env, context) {
+			globalThis.__env__ = env;
+			context.waitUntil(nitroHooks.callHook("cloudflare:queue", {
+				batch,
+				event: batch,
+				env,
+				context
+			}) || Promise.resolve());
+		},
+		tail(traces, env, context) {
+			globalThis.__env__ = env;
+			context.waitUntil(nitroHooks.callHook("cloudflare:tail", {
+				traces,
+				env,
+				context
+			}) || Promise.resolve());
+		},
+		trace(traces, env, context) {
+			globalThis.__env__ = env;
+			context.waitUntil(nitroHooks.callHook("cloudflare:trace", {
+				traces,
+				env,
+				context
+			}) || Promise.resolve());
+		}
+	};
+}
+function augmentReq(cfReq, ctx) {
+	const req = cfReq;
+	req.ip = cfReq.headers.get("cf-connecting-ip") || void 0;
+	req.runtime ??= { name: "cloudflare" };
+	req.runtime.cloudflare = {
+		...req.runtime.cloudflare,
+		...ctx
+	};
+	req.waitUntil = ctx.context?.waitUntil.bind(ctx.context);
+}
+//#endregion
+//#region node_modules/nitro/dist/presets/cloudflare/runtime/cloudflare-module.mjs
+var cloudflare_module_default = createHandler({ fetch(cfRequest, env, context, url) {
+	if (env.ASSETS && isPublicAssetURL(url.pathname)) return env.ASSETS.fetch(cfRequest);
+} });
+//#endregion
+export { cloudflare_module_default as default };
+
+{
+  "compatibility_date": "2026-10-13",
+  "main": "index.mjs",
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "..\\public"
+  },
+  "name": "tanstack-start-ts-downloads-food-delivery-application-food-delivery-application",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "no_bundle": true,
+  "rules": [
+    {
+      "type": "ESModule",
+      "globs": [
+        "**/*.mjs",
+        "**/*.js"
+      ]
+    }
+  ]
+}
+import { t as supabase } from "./_ssr/client-CLzdTAVC.mjs";
+import { t as cn } from "./_ssr/utils-C_uf36nf.mjs";
+import { o as require_jsx_runtime } from "./_libs/@radix-ui/react-collection+[...].mjs";
+import { t as useQuery } from "./_libs/tanstack__react-query.mjs";
+import { T as Check } from "./_libs/lucide-react.mjs";
+import { n as Route } from "./_ssr/router-B_stoLG7.mjs";
+import { r as inr } from "./_ssr/format-C_bFJLyC.mjs";
+import { t as assetUrl } from "./_ssr/images-m1lyMTJY.mjs";
+import { n as RowSkeleton } from "./_ssr/skeletons-DdocuKpi.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/_orderId-C1DT_IkV.js
+var import_jsx_runtime = require_jsx_runtime();
+var ORDER_STEPS = [
+	{
+		key: "confirmed",
+		label: "Order Confirmed"
+	},
+	{
+		key: "preparing",
+		label: "Preparing Food"
+	},
+	{
+		key: "packed",
+		label: "Packed"
+	},
+	{
+		key: "out_for_delivery",
+		label: "Out For Delivery"
+	},
+	{
+		key: "delivered",
+		label: "Delivered"
+	}
+];
+function OrderDetail() {
+	const { orderId } = Route.useParams();
+	const { data, isLoading } = useQuery({
+		queryKey: ["order", orderId],
+		queryFn: async () => {
+			const { data, error } = await supabase.from("orders").select("id,status,subtotal,gst,delivery_fee,platform_fee,discount,total,address,phone,payment_method,delivery_partner,eta_minutes,created_at,order_items(id,name,price,quantity,image_url)").eq("id", orderId).maybeSingle();
+			if (error) throw error;
+			return data ?? null;
+		}
+	});
+	if (isLoading) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "mx-auto max-w-3xl px-4 py-10 sm:px-6",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RowSkeleton, {})
+	});
+	if (!data) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "mx-auto max-w-3xl px-4 py-20 text-center sm:px-6",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+			className: "font-display text-2xl font-bold",
+			children: "Order not found"
+		})
+	});
+	const currentIndex = ORDER_STEPS.findIndex((s) => s.key === data.status);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "mx-auto max-w-3xl px-4 py-10 sm:px-6",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h1", {
+				className: "font-display text-3xl font-bold",
+				children: ["Order #", data.id.slice(0, 8).toUpperCase()]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+				className: "mt-2 text-sm text-muted-foreground",
+				children: [
+					"Placed ",
+					new Date(data.created_at).toLocaleString("en-IN"),
+					" • Arriving in ~",
+					data.eta_minutes,
+					" mins •",
+					" ",
+					data.delivery_partner,
+					" is your delivery partner"
+				]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("ol", {
+				className: "mt-8 space-y-4",
+				children: ORDER_STEPS.map((step, i) => {
+					const done = i <= currentIndex;
+					return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+						className: "flex items-center gap-3",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: cn("flex size-8 items-center justify-center rounded-full border", done ? "gradient-primary border-transparent text-primary-foreground" : "border-border"),
+							children: done ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { className: "size-4" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "text-xs",
+								children: i + 1
+							})
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: cn("text-sm", done ? "font-semibold" : "text-muted-foreground"),
+							children: step.label
+						})]
+					}, step.key);
+				})
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+				className: "mt-10 rounded-2xl border border-border bg-card p-6 shadow-soft",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+						className: "font-display text-lg font-bold",
+						children: "Items"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+						className: "mt-4 space-y-3",
+						children: data.order_items.map((i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+							className: "flex items-center gap-3",
+							children: [
+								i.image_url && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+									src: assetUrl(i.image_url),
+									alt: i.name,
+									width: 64,
+									height: 64,
+									className: "size-14 rounded-xl object-cover"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+									className: "flex-1 text-sm",
+									children: [
+										i.quantity,
+										" × ",
+										i.name
+									]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-sm font-semibold",
+									children: inr(i.price * i.quantity)
+								})
+							]
+						}, i.id))
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("dl", {
+						className: "mt-6 space-y-2 border-t border-border pt-4 text-sm",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Row, {
+								label: "Item total",
+								value: inr(data.subtotal)
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Row, {
+								label: "GST",
+								value: inr(data.gst)
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Row, {
+								label: "Delivery fee",
+								value: data.delivery_fee === 0 ? "FREE" : inr(data.delivery_fee)
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Row, {
+								label: "Platform fee",
+								value: inr(data.platform_fee)
+							}),
+							data.discount > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Row, {
+								label: "Discount",
+								value: `- ${inr(data.discount)}`
+							})
+						]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "mt-4 flex items-center justify-between border-t border-border pt-4",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+							className: "font-display font-bold",
+							children: ["Paid via ", data.payment_method]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "font-display text-xl font-bold",
+							children: inr(data.total)
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+						className: "mt-4 text-xs text-muted-foreground",
+						children: [
+							"Delivering to ",
+							data.address,
+							" • ",
+							data.phone
+						]
+					})
+				]
+			})
+		]
+	});
+}
+function Row({ label, value }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "flex items-center justify-between",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("dt", {
+			className: "text-muted-foreground",
+			children: label
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("dd", {
+			className: "font-medium",
+			children: value
+		})]
+	});
+}
+//#endregion
+export { OrderDetail as component };
+
+//#region \0rolldown/runtime.js
+var __create = Object.create;
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __esmMin = (fn, res, err) => () => {
+	if (err) throw err[0];
+	try {
+		return fn && (res = fn(fn = 0)), res;
+	} catch (e) {
+		throw err = [e], e;
+	}
+};
+var __commonJSMin = (cb, mod) => () => (mod || (cb((mod = { exports: {} }).exports, mod), cb = null), mod.exports);
+var __exportAll = (all, no_symbols) => {
+	let target = {};
+	for (var name in all) __defProp(target, name, {
+		get: all[name],
+		enumerable: true
+	});
+	if (!no_symbols) __defProp(target, Symbol.toStringTag, { value: "Module" });
+	return target;
+};
+var __copyProps = (to, from, except, desc) => {
+	if (from && typeof from === "object" || typeof from === "function") for (var keys = __getOwnPropNames(from), i = 0, n = keys.length, key; i < n; i++) {
+		key = keys[i];
+		if (!__hasOwnProp.call(to, key) && key !== except) __defProp(to, key, {
+			get: ((k) => from[k]).bind(null, key),
+			enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable
+		});
+	}
+	return to;
+};
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule || !__hasOwnProp.call(mod, "default") ? __defProp(target, "default", {
+	value: mod,
+	enumerable: true
+}) : target, mod));
+var __toCommonJS = (mod) => __hasOwnProp.call(mod, "module.exports") ? mod["module.exports"] : __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+//#endregion
+export { __toESM as a, __toCommonJS as i, __esmMin as n, __exportAll as r, __commonJSMin as t };
+
+//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-BzZwwzlc.js
+var tsrStartManifest = () => ({ routes: {
+	__root__: {
+		filePath: "C:/Users/KAMESH/Downloads/FOOD DELIVERY APPLICATION/FOOD DELIVERY APPLICATION/src/routes/__root.tsx",
+		children: [
+			"/",
+			"/_authenticated",
+			"/auth",
+			"/cart",
+			"/offers",
+			"/restaurants",
+			"/search",
+			"/category/$slug",
+			"/food/$foodId",
+			"/restaurant/$slug"
+		],
+		preloads: [
+			"/assets/index-DlWATgoj.js",
+			"/assets/jsx-runtime-Bzw2jH9X.js",
+			"/assets/dist-C5vJGR7k.js",
+			"/assets/matchContext-Bg-sGpTu.js",
+			"/assets/link-C53MvuEg.js",
+			"/assets/preload-helper-Bh0S0pE_.js",
+			"/assets/useRouter-DaChITO9.js",
+			"/assets/useSelector-CMV4ndLu.js",
+			"/assets/useNavigate-2wp2ldbe.js",
+			"/assets/button-Bg8YP6yt.js",
+			"/assets/utils-D0T3A-kS.js"
+		],
+		scripts: [{ attrs: {
+			type: "module",
+			async: !0,
+			src: "/assets/index-DlWATgoj.js"
+		} }]
+	},
+	"/": {
+		filePath: "C:/Users/KAMESH/Downloads/FOOD DELIVERY APPLICATION/FOOD DELIVERY APPLICATION/src/routes/index.tsx",
+		children: void 0,
+		preloads: [
+			"/assets/routes-C5MDp_43.js",
+			"/assets/food-card-BBpY-Pju.js",
+			"/assets/rating-BUi7KWEv.js",
+			"/assets/format-vEQiUox6.js",
+			"/assets/data-Bx3iyagT.js",
+			"/assets/images-91qmPJ2R.js",
+			"/assets/skeletons-CLE_Thxn.js",
+			"/assets/restaurant-card-k30MRAgw.js"
+		]
+	},
+	"/_authenticated": {
+		filePath: "C:/Users/KAMESH/Downloads/FOOD DELIVERY APPLICATION/FOOD DELIVERY APPLICATION/src/routes/_authenticated/route.tsx",
+		children: [
+			"/_authenticated/checkout",
+			"/_authenticated/profile",
+			"/_authenticated/wishlist",
+			"/_authenticated/orders/$orderId",
+			"/_authenticated/orders/"
+		],
+		preloads: ["/assets/route-D8xW0Mja.js"]
+	},
+	"/auth": {
+		filePath: "C:/Users/KAMESH/Downloads/FOOD DELIVERY APPLICATION/FOOD DELIVERY APPLICATION/src/routes/auth.tsx",
+		children: void 0,
+		preloads: [
+			"/assets/auth-C2Mit2AD.js",
+			"/assets/label-nBJxRixy.js",
+			"/assets/images-91qmPJ2R.js"
+		]
+	},
+	"/cart": {
+		filePath: "C:/Users/KAMESH/Downloads/FOOD DELIVERY APPLICATION/FOOD DELIVERY APPLICATION/src/routes/cart.tsx",
+		children: void 0,
+		preloads: [
+			"/assets/cart-zum0m0Ru.js",
+			"/assets/minus-Btlqaw7X.js",
+			"/assets/plus-CfLNzBdM.js",
+			"/assets/trash-2-DLcXY-Fq.js",
+			"/assets/format-vEQiUox6.js"
+		]
+	},
+	"/offers": {
+		filePath: "C:/Users/KAMESH/Downloads/FOOD DELIVERY APPLICATION/FOOD DELIVERY APPLICATION/src/routes/offers.tsx",
+		children: void 0,
+		preloads: [
+			"/assets/offers-CyuiMYep.js",
+			"/assets/format-vEQiUox6.js",
+			"/assets/data-Bx3iyagT.js"
+		]
+	},
+	"/restaurants": {
+		filePath: "C:/Users/KAMESH/Downloads/FOOD DELIVERY APPLICATION/FOOD DELIVERY APPLICATION/src/routes/restaurants.tsx",
+		children: void 0,
+		preloads: [
+			"/assets/restaurants-BIBlFaHA.js",
+			"/assets/data-Bx3iyagT.js",
+			"/assets/skeletons-CLE_Thxn.js",
+			"/assets/restaurant-card-k30MRAgw.js"
+		]
+	},
+	"/search": {
+		filePath: "C:/Users/KAMESH/Downloads/FOOD DELIVERY APPLICATION/FOOD DELIVERY APPLICATION/src/routes/search.tsx",
+		children: void 0,
+		preloads: [
+			"/assets/search-Bn8XnHnI.js",
+			"/assets/food-card-BBpY-Pju.js",
+			"/assets/data-Bx3iyagT.js",
+			"/assets/skeletons-CLE_Thxn.js"
+		]
+	},
+	"/_authenticated/checkout": {
+		filePath: "C:/Users/KAMESH/Downloads/FOOD DELIVERY APPLICATION/FOOD DELIVERY APPLICATION/src/routes/_authenticated/checkout.tsx",
+		children: void 0,
+		preloads: [
+			"/assets/checkout-BegjSLiB.js",
+			"/assets/label-nBJxRixy.js",
+			"/assets/format-vEQiUox6.js",
+			"/assets/data-Bx3iyagT.js"
+		]
+	},
+	"/_authenticated/profile": {
+		filePath: "C:/Users/KAMESH/Downloads/FOOD DELIVERY APPLICATION/FOOD DELIVERY APPLICATION/src/routes/_authenticated/profile.tsx",
+		children: void 0,
+		preloads: ["/assets/profile-D4RswYJg.js", "/assets/label-nBJxRixy.js"]
+	},
+	"/_authenticated/wishlist": {
+		filePath: "C:/Users/KAMESH/Downloads/FOOD DELIVERY APPLICATION/FOOD DELIVERY APPLICATION/src/routes/_authenticated/wishlist.tsx",
+		children: void 0,
+		preloads: [
+			"/assets/wishlist-CCjv8EG_.js",
+			"/assets/trash-2-DLcXY-Fq.js",
+			"/assets/format-vEQiUox6.js",
+			"/assets/images-91qmPJ2R.js",
+			"/assets/skeletons-CLE_Thxn.js"
+		]
+	},
+	"/category/$slug": {
+		filePath: "C:/Users/KAMESH/Downloads/FOOD DELIVERY APPLICATION/FOOD DELIVERY APPLICATION/src/routes/category.$slug.tsx",
+		children: void 0,
+		preloads: [
+			"/assets/category._slug-DcI-yjDr.js",
+			"/assets/food-card-BBpY-Pju.js",
+			"/assets/data-Bx3iyagT.js",
+			"/assets/images-91qmPJ2R.js",
+			"/assets/skeletons-CLE_Thxn.js"
+		]
+	},
+	"/food/$foodId": {
+		filePath: "C:/Users/KAMESH/Downloads/FOOD DELIVERY APPLICATION/FOOD DELIVERY APPLICATION/src/routes/food.$foodId.tsx",
+		children: void 0,
+		preloads: [
+			"/assets/food._foodId-3MLZ0VHQ.js",
+			"/assets/food-card-BBpY-Pju.js",
+			"/assets/minus-Btlqaw7X.js",
+			"/assets/plus-CfLNzBdM.js",
+			"/assets/rating-BUi7KWEv.js",
+			"/assets/format-vEQiUox6.js",
+			"/assets/data-Bx3iyagT.js",
+			"/assets/images-91qmPJ2R.js",
+			"/assets/skeletons-CLE_Thxn.js"
+		]
+	},
+	"/restaurant/$slug": {
+		filePath: "C:/Users/KAMESH/Downloads/FOOD DELIVERY APPLICATION/FOOD DELIVERY APPLICATION/src/routes/restaurant.$slug.tsx",
+		children: void 0,
+		preloads: [
+			"/assets/restaurant._slug-Ciyfblyc.js",
+			"/assets/map-pin-Bfi1k5IX.js",
+			"/assets/food-card-BBpY-Pju.js",
+			"/assets/rating-BUi7KWEv.js",
+			"/assets/format-vEQiUox6.js",
+			"/assets/data-Bx3iyagT.js",
+			"/assets/images-91qmPJ2R.js",
+			"/assets/skeletons-CLE_Thxn.js"
+		]
+	},
+	"/_authenticated/orders/$orderId": {
+		filePath: "C:/Users/KAMESH/Downloads/FOOD DELIVERY APPLICATION/FOOD DELIVERY APPLICATION/src/routes/_authenticated/orders/$orderId.tsx",
+		children: void 0,
+		preloads: [
+			"/assets/_orderId-DZtHcxn7.js",
+			"/assets/format-vEQiUox6.js",
+			"/assets/images-91qmPJ2R.js",
+			"/assets/skeletons-CLE_Thxn.js"
+		]
+	},
+	"/_authenticated/orders/": {
+		filePath: "C:/Users/KAMESH/Downloads/FOOD DELIVERY APPLICATION/FOOD DELIVERY APPLICATION/src/routes/_authenticated/orders/index.tsx",
+		children: void 0,
+		preloads: [
+			"/assets/orders-BNVoIL1V.js",
+			"/assets/format-vEQiUox6.js",
+			"/assets/skeletons-CLE_Thxn.js"
+		]
+	}
+} });
+//#endregion
+export { tsrStartManifest };
